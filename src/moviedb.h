@@ -56,10 +56,9 @@ public:
     // the new movie, or throws an exception if the transactions haven't started
     // or the cursor is past the last element
     void insert(const Movie& movie);
-    // Removes the movie at the transaction cursor and positions the cursor so that
-    // it points to the element that was deleted (or nullptr if none remaining), or
-    // throws an exception if the transactions haven't started or the cursor isn't
-    // at a valid movie
+    // Removes the movie at the transaction cursor and positions the cursor so it
+    // points to the element after the one that was deleted, or throws an exception
+    // if the transactions haven't started or the cursor isn't at a valid movie
     void remove();
     // Returns the movie at the transaction cursor, or throws an exception if the
     // transactions haven't started yet or the cursor isn't at a valid movie
