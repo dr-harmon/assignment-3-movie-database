@@ -209,6 +209,7 @@ TEST_CASE("Movies can be removed in a transaction")
     REQUIRE(db.getCurrent().title == movie1.title);
     db.remove();
     REQUIRE(db.getSize() == 0);
+    db.endTransaction();
 }
 
 TEST_CASE("Transaction operations must be within a transaction")
