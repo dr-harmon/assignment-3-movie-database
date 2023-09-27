@@ -38,15 +38,17 @@ For more details on how to implement transaction mode, refer to the source code 
 
 ## Hint: CSV Reading
 
-For the `load` function, you should use the provided `CSVReader` class in `csv.h` and the `MOVIEDB_PATH` string variable that is injected into all build targets. Although the sample data in `HollywoodMovies.csv` has many fields, the database only needs two: title and year. Here is an example:
+For the `load` function, you should use the provided `CSVReader` class in `csv.h`. Although the sample data in `HollywoodMovies.csv` has many fields, the database only needs two: title and year. Here is an example:
 
-    io::CSVReader<2> in(MOVIEDB_PATH);
+    io::CSVReader<2> in(filename);
     in.read_header(io::ignore_extra_column, "Title", "Year");
     string title;
     int year;
     while (in.read_row(title, year)) {
         // ...
     }
+
+For testing purposes, the `MOVIEDB_PATH` string variable holds the file path to `HollywoodMovies.csv`. See the unit tests for an example of how it can be used.
 
 ## Hint: Code Reuse
 
